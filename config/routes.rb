@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :listings
   
+  post "listings/:id/order", to: "listings#place_order", as: "place_order"
+  get 'pages/success', to: 'pages#success', as: "order_success"
+  
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     
  end
