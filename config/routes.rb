@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'orders/success'
   get 'orders/bought'
   get 'orders/sold'
   root 'pages#home'
@@ -7,7 +6,8 @@ Rails.application.routes.draw do
   resources :listings
   
   post "listings/:id/order", to: "listings#place_order", as: "place_order"
-  get 'pages/success', to: 'pages#success', as: "order_success"
+ 
+  get 'orders/success'
   
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     
